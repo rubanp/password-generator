@@ -8,10 +8,16 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "3.0.0"
+    "@histoire/plugin-nuxt": "^0.11.7",
+    "@histoire/plugin-vue": "^0.11.7",
+    "@nuxt/test-utils-edge": "^3.0.1-rc.0-27810184.d991a55",
+    "@nuxt/types": "^2.15.8",
+    "@nuxt/typescript-build": "^2.1.0",
+    "histoire": "^0.11.7",
+    "nuxt": "3.0.0",
+    "vitest": "^0.25.2"
   },
   "dependencies": {
-    "@nuxt/test-utils-edge": "^3.0.1-rc.0-27810184.d991a55",
-    "vitest": "^0.25.2"
+    "@formkit/nuxt": "^1.0.0-beta.12"
   }
 }
