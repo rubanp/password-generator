@@ -4,6 +4,6 @@ export default defineNuxtConfig({
     'assets/css/main.css',
   ],
   modules: [
-    '@formkit/nuxt'
+    'nuxt-windicss'
   ]
 })

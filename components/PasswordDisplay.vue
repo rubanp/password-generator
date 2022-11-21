@@ -23,6 +23,7 @@ div {
   background-color: var(--dark-grey);
   width: 540px;
   display: flex;
+  flex-direction: row;
   align-items: center;
 }
 

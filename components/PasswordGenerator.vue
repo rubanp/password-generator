@@ -4,11 +4,6 @@
 
 <template>
   <div>
-    <FormKit
-      type="form"
-    >
-
-    </FormKit>
   </div>
 </template>
 
@@ -20,6 +15,6 @@ div {
   display: flex;
   flex-direction: column;
   gap: 2em;
-  align-items: start;
+  align-items: flex-start;
 }
 </style>
