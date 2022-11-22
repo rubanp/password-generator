@@ -3,12 +3,16 @@
 </script>
 
 <template>
-  <div>
+  <div class="password-generator-container">
+    <form action="">
+      <CharacterSlider />
+    </form>
   </div>
 </template>
 
 <style scoped>
-div {
+
+.password-generator-container {
   padding: 1.25em;
   background-color: var(--dark-grey);
   width: 540px;
@@ -17,4 +21,9 @@ div {
   gap: 2em;
   align-items: flex-start;
 }
+
+form {
+  width: 100%;
+}
+
 </style>

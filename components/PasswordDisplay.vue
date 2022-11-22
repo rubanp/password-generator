@@ -4,34 +4,27 @@ interface Props {
 }
 
 const props = defineProps<Props>();
+
+function copyPassword() {
+  console.log('Password copied to clipboard');
+}
 </script>
 
 <template>
-  <div>
+  <div class="password-display-container">
     <h2 class="heading-large">{{ props.password }}</h2>
-    <img
-      src="../assets/images/icon-copy.svg"
-      alt="Copy password to clipboard"
-      @click="$emit('copy')"
-    >
+    <IconCopy @click="copyPassword"/>
   </div>
 </template>
 
 <style scoped>
-div {
+.password-display-container {
   padding: 1.25em;
   background-color: var(--dark-grey);
   width: 540px;
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-
-img {
-  margin-left: auto;
-  width: 21px;
-  height: 24px;
-  cursor: pointer;
 }
 
 h2 {
