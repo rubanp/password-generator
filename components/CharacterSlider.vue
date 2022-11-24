@@ -97,13 +97,13 @@ input[type="range"]:focus-visible {
 
 /* Chrome, Safari, Opera, and Edge Chromium */
 input[type="range"]:focus-visible::-webkit-slider-thumb {
-  outline: 3px solid var(--green);
+  outline: 2px solid var(--green);
   outline-offset: 0.25rem;
 }
 
 /* Firefox */
 input[type="range"]:focus-visible::-moz-range-thumb {
-  outline: 3px solid var(--green);
+  outline: 2px solid var(--green);
   outline-offset: 0.25rem;
 }
 
