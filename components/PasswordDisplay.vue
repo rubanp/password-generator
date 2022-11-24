@@ -1,18 +1,23 @@
-<script setup lang='ts'>
-interface Props {
-  password: string
-}
-
-const props = defineProps<Props>();
+<script setup>
+const props = defineProps(['password']);
 
 function copyPassword() {
-  console.log('Password copied to clipboard');
+    const type = "text/plain";
+    const blob = new Blob([props.password], { type });
+    const data = [new ClipboardItem({ [type]: blob })];
+    navigator.clipboard.write(data)
 }
+
+const placeholder = ref('P4$5W0rD!');
+
 </script>
 
 <template>
   <div class="password-display-container">
-    <h2 class="heading-large">{{ props.password }}</h2>
+    <h2 class="heading-large">
+      {{ props.password }}
+      <span v-if="!props.password">{{ placeholder }}</span>
+    </h2>
     <IconCopy @click="copyPassword"/>
   </div>
 </template>
@@ -25,9 +30,14 @@ function copyPassword() {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
 
 h2 {
   color: var(--white);
+}
+
+span {
+  color: var(--light-grey);
 }
 </style>
