@@ -1,5 +1,14 @@
 <script setup>
 const characters = ref(12);
+onMounted(() => {
+  /* document.getElementById("characterLength").style.background = */ 
+  /*   "linear-gradient(to right, var(--green) 0%, var(--green) 50%, var(--black) 50%, var(--black) 100%)"; */
+  document.getElementById("characterLength").addEventListener('input', (e) => {
+    let value = (e.target.value - e.target.min) / (e.target.max - e.target.min) * 100;
+    e.target.style.background = `linear-gradient(to right, var(--green) 0%, var(--green) ${value}%, var(--black) ${value}%, var(--black) 100%)`;
+  })
+
+})
 </script>
 
 <template>
@@ -8,8 +17,7 @@ const characters = ref(12);
       <label for="characterLength" class="body-regular">Character Length</label>
       <p class="heading-large">{{ characters }}</p>
     </div>
-      <input type="range" name="characterLength" id="characterLength" min="5" 
-        max="20" v-model="characters" class="focus-toggle">
+      <input type="range" name="characterLength" id="characterLength" min="5" max="19" v-model="characters" class="focus-toggle">
   </div>
 </template>
 
@@ -43,7 +51,7 @@ label {
 input[type=range] {
   appearance: none;
   width: 100%; /* Specific width is required for Firefox. */
-  background: transparent; /* Otherwise white in Chrome */
+  background: linear-gradient(to right, var(--green) 0%, var(--green) 50%, var(--black) 50%, var(--black) 100%);
   cursor: pointer;
 }
 
@@ -52,13 +60,11 @@ input[type=range] {
 
 /* Chrome, Safari, Opera, and Edge Chromium */
 input[type="range"]::-webkit-slider-runnable-track {
-  background: var(--black);
   height: 0.5rem;
 }
 
 /* Firefox */
 input[type="range"]::-moz-range-track {
-  background: var(--black);
   height: 8px;
 }
 
@@ -113,6 +119,7 @@ input[type="range"]:focus-visible::-moz-range-thumb {
 /* Chrome, Safari, Opera, and Edge Chromium */
 input[type=range]:hover::-webkit-slider-thumb, 
 input[type=range]:active::-webkit-slider-thumb {
-  outline: none;
+  background-color: var(--black);
+  border: solid 3px var(--green);
 }
 </style>
