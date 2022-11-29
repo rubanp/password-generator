@@ -100,7 +100,7 @@ function calculateStrength(length, options) {
 .password-generator-container {
   padding: 2em;
   background-color: var(--dark-grey);
-  width: 540px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 2em;

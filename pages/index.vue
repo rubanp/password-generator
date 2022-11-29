@@ -16,6 +16,19 @@
     flex-direction: column;
     align-items: center;
     gap: 2em;
+    width: 600px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .index-container {
+      width: 400px;
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    .index-container {
+      width: 95%;
+    }
   }
 
   h1 {

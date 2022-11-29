@@ -26,7 +26,7 @@ const placeholder = ref('P4$5W0rD!');
 .password-display-container {
   padding: 1.25em;
   background-color: var(--dark-grey);
-  width: 540px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
