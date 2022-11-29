@@ -10,4 +10,13 @@ export default defineNuxtConfig({
       'process.env.DEBUG': false,
     },
   },
+  head: {
+    script: [
+      {
+        src: 'https://plausible.io/js/script.js',
+        defer: true,
+        "data-domain": 'amazing-parfait-af90e7.netlify.app'
+      }
+    ]
+  }
 })
