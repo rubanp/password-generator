@@ -7,4 +7,7 @@ export default defineConfig({
     HstVue(),
     HstNuxt(),
   ],
+  storyMatch: [
+    'components/Stories/*.story.vue'
+  ]
 })
