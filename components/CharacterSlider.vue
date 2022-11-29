@@ -1,8 +1,6 @@
 <script setup>
-const characters = ref(12);
+const characters = ref(10);
 onMounted(() => {
-  /* document.getElementById("characterLength").style.background = */ 
-  /*   "linear-gradient(to right, var(--green) 0%, var(--green) 50%, var(--black) 50%, var(--black) 100%)"; */
   document.getElementById("characterLength").addEventListener('input', (e) => {
     let value = (e.target.value - e.target.min) / (e.target.max - e.target.min) * 100;
     e.target.style.background = `linear-gradient(to right, var(--green) 0%, var(--green) ${value}%, var(--black) ${value}%, var(--black) 100%)`;
@@ -17,7 +15,7 @@ onMounted(() => {
       <label for="characterLength" class="body-regular">Character Length</label>
       <p class="heading-large">{{ characters }}</p>
     </div>
-      <input type="range" name="characterLength" id="characterLength" min="5" max="19" v-model="characters" class="focus-toggle">
+      <input type="range" name="characterLength" id="characterLength" min="0" max="20" v-model="characters" class="focus-toggle">
   </div>
 </template>
 
