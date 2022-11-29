@@ -1,6 +1,8 @@
 <script setup>
 const emit = defineEmits(['password']);
 
+const strength = ref(0);
+
 const allCharacters = {
   lowercase: 'abcdefghijklmnopqrstuvwxyz',
   uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -19,6 +21,8 @@ function parseForm(e) {
 
   generatePassword(length, options);
 
+  calculateStrength(length, options);
+
 }
 
 function generatePassword(length, options) {
@@ -36,6 +40,31 @@ function generatePassword(length, options) {
     emit('password', newPassword)
 }
 
+function calculateStrength(length, options) {
+  let newStrength;
+
+  if (length === 0) {
+    newStrength = 0;
+  }
+
+  if (length >= 1) {
+    newStrength = 1;
+  }
+
+  if (length >= 4 && options.includes('numbers') || options.includes('symbols') && options.length >= 2) {
+    newStrength = 2;
+  }
+
+  if (length >= 8 && options.includes('numbers') || options.includes('symbols') && options.length >= 3) {
+    newStrength = 3;
+  }
+
+  if (length >= 12 && options.length === 4) {
+    newStrength = 4;
+  }
+
+  strength.value = newStrength;
+}
 
 </script>
 
@@ -59,8 +88,9 @@ function generatePassword(length, options) {
         <IncludeCheckbox
           label="Include Symbols"
           name="symbols"/>
-        <GenerateButton />
       </div>
+      <PasswordStrength :strength="strength"/>
+      <GenerateButton />
     </form>
   </div>
 </template>
@@ -78,7 +108,7 @@ function generatePassword(length, options) {
 }
 
 .include-checkbox-wrapper {
-  margin-top: 2em;
+  margin: 2em 0;
   display: flex;
   flex-direction: column;
   gap: 1.5em;
