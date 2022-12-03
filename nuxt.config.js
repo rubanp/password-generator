@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
   target: 'static',
   ssr: false,
-  modules: ['nuxt-plausible'],
   css: [
     'assets/css/main.css',
   ],
