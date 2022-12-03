@@ -21,15 +21,15 @@
 
   @media only screen and (max-width: 600px) {
     .index-container {
-      width: 400px;
-    }
-  }
-
-  @media only screen and (max-width: 450px) {
-    .index-container {
       width: 95%;
     }
   }
+
+  /* @media only screen and (max-width: 450px) { */
+  /*   .index-container { */
+  /*     width: 95%; */
+  /*   } */
+  /* } */
 
   h1 {
     color: var(--light-grey);
