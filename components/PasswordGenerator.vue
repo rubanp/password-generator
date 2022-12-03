@@ -43,23 +43,25 @@ function generatePassword(length, options) {
 function calculateStrength(length, options) {
   let newStrength;
 
-  if (length === 0) {
+  const passwordLength = parseInt(length, 10);
+
+  if (passwordLength === 0) {
     newStrength = 0;
   }
 
-  if (length >= 1) {
+  if (passwordLength >= 1) {
     newStrength = 1;
   }
 
-  if (length >= 4 && options.includes('numbers') || options.includes('symbols') && options.length >= 2) {
+  if (passwordLength >= 6) {
     newStrength = 2;
   }
 
-  if (length >= 8 && options.includes('numbers') || options.includes('symbols') && options.length >= 3) {
+  if (passwordLength >= 10 && options.length >= 3) {
     newStrength = 3;
   }
 
-  if (length >= 12 && options.length === 4) {
+  if (passwordLength >= 14 && options.length === 4) {
     newStrength = 4;
   }
 

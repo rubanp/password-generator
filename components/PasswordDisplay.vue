@@ -1,14 +1,20 @@
 <script setup>
 const props = defineProps(['password']);
+const placeholder = ref('P4$5W0rD!');
+const checkVisible = ref(false);
 
 function copyPassword() {
     const type = "text/plain";
     const blob = new Blob([props.password], { type });
     const data = [new ClipboardItem({ [type]: blob })];
     navigator.clipboard.write(data)
+
+    checkVisible.value = true;
+    setTimeout(() => {
+      checkVisible.value = false
+    }, 2000)
 }
 
-const placeholder = ref('P4$5W0rD!');
 
 </script>
 
@@ -18,7 +24,8 @@ const placeholder = ref('P4$5W0rD!');
       {{ props.password }}
       <span v-if="!props.password">{{ placeholder }}</span>
     </h2>
-    <IconCopy @click="copyPassword"/>
+    <IconCopy @click="copyPassword" v-if="!checkVisible"/>
+    <IconCheckCopied v-if="checkVisible"/>
   </div>
 </template>
 
